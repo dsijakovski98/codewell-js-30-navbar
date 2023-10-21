@@ -60,9 +60,6 @@ button {
 	--white: #eee;
 
 	--border-radius: 4px;
-
-	--tablet: 850px;
-	--mobile: 450px;
 }
 
 body {
@@ -71,6 +68,10 @@ body {
 
 	background-color: var(--bg-col);
 	color: var(--primary-text);
+}
+
+body:has(nav .links-container[aria-expanded='true']) {
+	overflow: hidden;
 }
 
 ul {
@@ -90,7 +91,7 @@ header {
 }
 
 .container {
-	max-width: 1140px;
+	max-width: 1200px;
 
 	margin-inline: auto;
 	padding-inline: 2rem;
@@ -180,12 +181,10 @@ nav a:focus-visible {
 
 @media screen and (max-width: 950px) {
 	nav .backdrop {
-		display: block;
 		position: absolute;
 		inset: 0;
 
-		background: var(--black);
-		opacity: 0.2;
+		backdrop-filter: blur(2px) brightness(50%);
 	}
 
 	nav .links-container {
@@ -204,6 +203,19 @@ nav a:focus-visible {
 
 		background-color: var(--bg-col);
 		box-shadow: -2px 0px 1em rgb(0, 0, 0, 0.2);
+
+		z-index: 2;
+		transform: translateX(100%);
+
+		transition: transform 250ms;
+	}
+
+	nav .links-container[aria-expanded='true'] {
+		transform: translateX(0);
+	}
+
+	nav .backdrop:has(~ .links-container[aria-expanded='true']) {
+		display: block;
 	}
 
 	nav .links-container .burger {
