@@ -81,8 +81,10 @@ header {
 }
 
 .container {
-	margin-inline: auto;
 	max-width: 1140px;
+
+	margin-inline: auto;
+	padding-inline: 2rem;
 }
 
 nav {
@@ -106,6 +108,17 @@ nav {
 	font-size: 1.8rem;
 }
 
+.links {
+	display: flex;
+	align-items: center;
+	flex: 1;
+}
+
+.nav-links {
+	/* Center the middle links on desktop */
+	margin-inline: auto;
+}
+
 nav ul {
 	display: flex;
 	align-items: center;
@@ -125,8 +138,8 @@ nav a:focus-visible {
 	color: var(--secondary-text) !important;
 }
 
-.nav-links a:hover,
-.nav-links a:focus-visible {
+nav a:hover,
+nav a:focus-visible {
 	transform: translateY(-5px);
 }
 
@@ -144,4 +157,10 @@ nav a:focus-visible {
 	background-color: var(--secondary-col);
 	color: var(--primary-text);
 	transform: initial;
+}
+
+@media screen and (max-width: 950px) {
+	body {
+		display: none;
+	}
 }
