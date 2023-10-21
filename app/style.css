@@ -161,12 +161,12 @@ nav a:focus-visible {
 }
 
 .cta-btn {
+	padding: 1rem 2rem;
+	border-radius: var(--border-radius);
+
 	background-color: var(--primary-col);
 	color: var(--white);
-
-	padding: 1rem 2rem;
-
-	border-radius: var(--border-radius);
+	box-shadow: 0 2px 0.2em rgba(0, 0, 0, 0.5);
 }
 
 .cta-btn:hover,
