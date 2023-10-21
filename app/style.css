@@ -2,23 +2,146 @@
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
 */
-*, *::before, *::after {
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 * {
-  margin: 0;
+	margin: 0;
+	padding: 0;
 }
 body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
 }
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
 }
-input, button, textarea, select {
-  font: inherit;
+input,
+button,
+textarea,
+select {
+	font: inherit;
 }
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+:root {
+	--primary-text: #6c6c6c;
+	--secondary-text: #133416;
+
+	--primary-col: #133416;
+	--secondary-col: #f7b300;
+	--bg-col: #f2ece4;
+
+	--black: #111;
+	--white: #eee;
+
+	--border-radius: 4px;
+
+	--tablet: 850px;
+	--mobile: 450px;
+}
+
+body {
+	font-family: 'Inter', sans-serif;
+	font-family: 'Roboto', sans-serif;
+
+	background-color: var(--bg-col);
+	color: var(--primary-text);
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	display: block;
+
+	text-decoration: none;
+	padding: 0.5rem;
+	color: inherit;
+}
+
+header {
+	padding-block: 2.5rem;
+}
+
+.container {
+	margin-inline: auto;
+	max-width: 1140px;
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.logo:hover,
+.logo:focus-visible {
+	transform: initial;
+}
+
+.logo h1 {
+	font-size: 1.8rem;
+}
+
+nav ul {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	justify-content: center;
+}
+
+nav a {
+	font-size: 1.1rem;
+	font-weight: 500;
+
+	transition: all 250ms;
+}
+
+nav a:hover,
+nav a:focus-visible {
+	color: var(--secondary-text) !important;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+	transform: translateY(-5px);
+}
+
+.cta-btn {
+	background-color: var(--primary-col);
+	color: var(--white);
+
+	padding: 1rem 2rem;
+
+	border-radius: var(--border-radius);
+}
+
+.cta-btn:hover,
+.cta-btn:focus-visible {
+	background-color: var(--secondary-col);
+	color: var(--primary-text);
+	transform: initial;
 }
