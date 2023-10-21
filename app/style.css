@@ -70,6 +70,7 @@ body {
 	color: var(--primary-text);
 }
 
+/* Disable scrolling when nav menu is opened */
 body:has(nav .links-container[aria-expanded='true']) {
 	overflow: hidden;
 }
