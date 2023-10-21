@@ -7,14 +7,17 @@
 *::after {
 	box-sizing: border-box;
 }
+
 * {
 	margin: 0;
 	padding: 0;
 }
+
 body {
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
 }
+
 img,
 picture,
 video,
@@ -23,12 +26,14 @@ svg {
 	display: block;
 	max-width: 100%;
 }
+
 input,
 button,
 textarea,
 select {
 	font: inherit;
 }
+
 p,
 h1,
 h2,
@@ -37,6 +42,10 @@ h4,
 h5,
 h6 {
 	overflow-wrap: break-word;
+}
+
+button {
+	cursor: pointer;
 }
 
 :root {
@@ -91,6 +100,8 @@ nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	isolation: isolate;
 }
 
 .logo {
@@ -108,13 +119,17 @@ nav {
 	font-size: 1.8rem;
 }
 
-.links {
+nav .backdrop {
+	display: none;
+}
+
+nav .links-container {
 	display: flex;
 	align-items: center;
 	flex: 1;
 }
 
-.nav-links {
+nav ul:first-child {
 	/* Center the middle links on desktop */
 	margin-inline: auto;
 }
@@ -159,8 +174,69 @@ nav a:focus-visible {
 	transform: initial;
 }
 
+.burger {
+	display: none;
+}
+
 @media screen and (max-width: 950px) {
-	body {
-		display: none;
+	nav .backdrop {
+		display: block;
+		position: absolute;
+		inset: 0;
+
+		background: var(--black);
+		opacity: 0.2;
+	}
+
+	nav .links-container {
+		position: absolute;
+		inset-block: 0;
+		right: 0;
+
+		width: 400px;
+		max-width: 100dvw;
+
+		flex-direction: column;
+		justify-content: space-between;
+
+		/* top inline bottom */
+		padding: 6rem 4rem 4rem;
+
+		background-color: var(--bg-col);
+		box-shadow: -2px 0px 1em rgb(0, 0, 0, 0.2);
+	}
+
+	nav .links-container .burger {
+		position: absolute;
+		right: 2rem;
+		top: 2.5rem;
+
+		display: grid;
+		place-items: center;
+	}
+
+	nav ul:first-child {
+		margin-inline: initial;
+	}
+
+	nav ul {
+		flex-direction: column;
+	}
+
+	.burger {
+		display: block;
+
+		border: 0;
+		color: inherit;
+		background-color: transparent;
+
+		padding: 0.5rem;
+
+		z-index: 2;
+	}
+
+	.burger:hover,
+	.burger:focus-visible {
+		color: var(--secondary-text);
 	}
 }
