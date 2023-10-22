@@ -24,6 +24,10 @@ navLinks.forEach((navLink) => {
 	navLink.addEventListener('mousemove', (e) => {
 		e.stopPropagation()
 
+		const expandedMenu = document.querySelector('.links-container').getAttribute('aria-expanded')
+		// Stop mouse mapping when mobile menu is open
+		if (expandedMenu === 'true') return
+
 		const anchor = navLink.querySelector('a')
 		const { x, y, width, height } = anchor.getBoundingClientRect()
 

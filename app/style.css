@@ -14,6 +14,7 @@
 }
 
 body {
+	overflow-x: hidden;
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
 }
@@ -147,6 +148,7 @@ nav ul {
 nav a {
 	font-size: 1.1rem;
 	font-weight: 500;
+	text-align: center;
 
 	transition: all 250ms;
 }
@@ -286,6 +288,10 @@ nav a:focus-visible {
 		transition: transform 250ms;
 	}
 
+	.nav-links a {
+		font-size: 20px;
+	}
+
 	nav .links-container[aria-expanded='true'] {
 		transform: translateX(0);
 	}
@@ -309,6 +315,35 @@ nav a:focus-visible {
 
 	nav ul {
 		flex-direction: column;
+	}
+
+	.nav-links > li:hover .link-options,
+	.link-options:hover {
+		all: unset;
+		display: grid;
+		gap: 0.5rem;
+		background-color: transparent;
+	}
+
+	.nav-links .link-options a {
+		font-size: 16px;
+		width: 100%;
+		text-align: center;
+
+		transition: color 250mx;
+	}
+
+	.nav-links .link-options a:hover,
+	.nav-links .link-options a:focus-visible {
+		color: var(--primary-text) !important;
+	}
+
+	.nav-links .link-options p {
+		display: none;
+	}
+
+	nav .link-options::before {
+		display: none;
 	}
 
 	.burger {
