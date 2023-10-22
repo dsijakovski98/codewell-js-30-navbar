@@ -57,9 +57,10 @@ button {
 	--bg-col: #f2ece4;
 
 	--black: #111;
-	--white: #eee;
+	--white: #fff;
 
 	--border-radius: 4px;
+	--border-radius-x2: 8px;
 }
 
 body {
@@ -178,6 +179,80 @@ nav a:focus-visible {
 
 .burger {
 	display: none;
+}
+
+/* Link options */
+
+.nav-links a {
+	position: relative;
+}
+
+.link-options {
+	width: 0;
+	height: 0;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.nav-links > li:hover .link-options,
+.link-options:hover {
+	--offset: 50px;
+
+	width: auto;
+	height: auto;
+	opacity: 1;
+	pointer-events: all;
+	transform-origin: center center;
+
+	position: absolute;
+	transform: translate(calc(var(--offset) * -1));
+
+	display: grid;
+	align-items: start;
+	gap: 2rem;
+
+	background-color: var(--white);
+
+	padding: 2rem;
+	border-radius: var(--border-radius-x2);
+
+	isolation: isolate;
+
+	transition: all 250ms;
+}
+
+/* Tooltip */
+
+.link-options::before {
+	content: '';
+
+	position: absolute;
+	left: calc(2rem + var(--offset));
+	transform: translateY(-20%) translateZ(-10px) rotateZ(45deg);
+
+	width: 20px;
+	height: 20px;
+
+	background-color: inherit;
+	pointer-events: none;
+}
+
+.link-options p {
+	font-size: 14px;
+}
+
+.link-options a {
+	padding: 0;
+
+	width: fit-content;
+	color: var(--secondary-text);
+	font-weight: 600;
+}
+
+.link-options a:hover,
+.link-options a:focus-visible {
+	transform: translate(0);
+	color: var(--primary-text);
 }
 
 @media screen and (max-width: 950px) {

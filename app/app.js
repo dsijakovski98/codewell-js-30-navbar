@@ -16,3 +16,25 @@ const toggleMenu = () => {
 
 burger.addEventListener('click', toggleMenu)
 backdrop.addEventListener('click', toggleMenu)
+
+// Options menu follows mouse
+const navLinks = document.querySelectorAll('.nav-links > li')
+
+navLinks.forEach((navLink) => {
+	navLink.addEventListener('mousemove', (e) => {
+		e.stopPropagation()
+
+		const anchor = navLink.querySelector('a')
+		const { x, y, width, height } = anchor.getBoundingClientRect()
+
+		const mouseY = e.clientY - height / 2
+		const padding = 8
+		// Stop mouse mapping when the mouse is in the link options
+		if (mouseY >= y + padding) return
+
+		const newX = e.clientX - x - width / 2
+
+		const linkOptions = navLink.querySelector('.link-options')
+		linkOptions.style.translate = `${newX}px`
+	})
+})
